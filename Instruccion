@@ -1,0 +1,73 @@
+Desafío
+Como Data Engineer de Telecom, tu objetivo es diseñar e implementar un pipeline de datos que permita:
+
+Ingestar los datos de clientes y servicios desde un archivo CSV a un bucket de S3 (Data Lake).
+Catalogar los datos utilizando AWS Glue para facilitar su descubrimiento y uso posterior en procesos de ETL.
+Transformar los datos mediante un script ETL en AWS
+Almacenar los datos transformados en Amazon Redshift (Data Warehouse) para realizar consultas analíticas.
+Registrar logs del pipeline en Amazon
+Realizar consultas ad-hoc en Amazon Athena, conectándose al Data
+Automatizar todo el pipeline utilizando AWS Glue Workflows o AWS Step
+Versionar el proyecto en
+Requisitos Técnicos
+
+
+FALTA:
+*SUBIR EL ARCHIVO CSV A S3 USANDO:
+aws s3 cp csv s3://telecom-datalake/data/
+
+Paso 3: Configurar AWS Glue
+
+Crear un crawler en Glue
+Crear un crawler que apunte al bucket de S3 (Data Lake).
+Configurar un rol de IAM con permisos para Glue y
+Ejecutar el crawler para catalogar los datos en el Glue Data
+Crear un script ETL en Glue
+Escribir un script en Python para limpiar y transformar los
+Subir el script a S3:
+aws s3 cp py s3://telecom-datalake/scripts/
+Paso 4: Configurar Amazon Redshift
+Crear un clúster de Redshift
+Crear una base de datos y una tabla en Redshift (Data Warehouse):
+image.png
+
+Paso 5: Configurar Amazon DynamoDB
+Crear una tabla en DynamoDB llamada "pipeline-config" con clave primaria "id_pipeline".
+Registrar logs en DynamoDB usando un script en Python:
+image.png
+
+Paso 6: Configurar Amazon Athena
+Configurar el bucket de S3 (Data Lake) como fuente de datos en
+Crear y ejecutar una consulta básica en Athena:
+image.png
+
+Paso 7: Automatizar el Pipeline
+Usar AWS Glue Workflows o AWS Step Funciones para orquestar las tareas del
+Paso 8: Versionar el Proyecto en GitHub
+Crear un repositorio llamado "teleco-data-engineering-Project".
+Estructurar el proyecto:
+ 
+
+image.png
+
+Subir los archivos al repositorio:
+
+1- Añadir todos los archivos al área de preparación
+
+image.png
+
+2- Crear un commit con un mensaje:
+
+image.png
+
+3- Renombrar la rama principal a 'main':
+
+image.png
+
+4- Agregar la URL del repositorio remoto (reemplaza <URL-DEL- REPOSITORIO> con la URL real de tu repositorio en GitHub):
+
+image.png
+
+5- Empujar los cambios a la rama 'main' del repositorio remoto:
+
+image.png
