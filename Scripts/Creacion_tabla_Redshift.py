@@ -7,4 +7,4 @@ create table telecom_transformed (
     monto DECIMAL (10,2),
     monto_total DECIMAL(10,2)
 );
-GO
+go
