@@ -6,7 +6,7 @@ import numpy as np
 import os
 
 #Determino los parámetros
-bucket = 'telecom-datalake'
+bucket = 'telecom-datalake-1'
 key = 'data/clientes.csv'
 print ("Parametros definidos")
 
@@ -55,6 +55,3 @@ output_key = 'scripts/ETL_en_Glue.py'
 #Subir el archivo
 s3.upload_file(local_file_path, bucket, output_key)
 print(f" Script subido correctamente a s3://{bucket}/{output_key}")
-
-#Verificacion de la carga en S3
-aws s3 ls s3://telecom-datalake/scripts/
