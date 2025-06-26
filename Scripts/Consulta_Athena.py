@@ -1,2 +1,3 @@
-select * from telecom_data
+#No se pudo ejecutar por falta de permisos del usuario
+select * from telecom-data-1
 limit 10;

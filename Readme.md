@@ -8,6 +8,27 @@ AWS CLI (desde https://docs.aws.amazon.com/cli/latest/userguide/getting-started-
 pandas (pip install pandas)
 boto3 (pip install boto3)
 
+# Permisos para rol IAM
+AmazonRedshiftAllCommandsFullAccess
+AWSGlueConsoleFullAccess
+AWSGlueServiceRole
+CloudWatchLogsFullAccess
+
+# Configuracion de politica del bucket (necesario para que se cree la tabla despues del crawler)
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::992382691114:role/rol_romi_glue" #tener en cuenta que esto cambia por el rol y usuario utilizado
+      },
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::telecom-datalake-1/data/*" #le agregue el "-1" debido a que me figuraba que el bucket "telecom-datalake" ya estaba creado
+    }
+  ]
+}
+
 # Conexion entre Visual Studio y AWS:
 aws configure
 
@@ -33,5 +54,9 @@ git init
 git add .
 git commit -m "Iniciando proyecto en GitHub"
 
-# Nota:
-Cuando se intente crear el crawler, primero se tienen que cambiar las politicas del bucket y despues se selecciona la ruta del archivo csv pero al final no se pone nada (ningun . ni /, es decir termina en csv) 
+# Notas:
+# 1)
+Antes de ejecutar el crawler, se deben agregar al bucket las politicas y, despues seleccionar la ruta del archivo csv sin ningun signo al final(es decir termina en "csv") 
+# 2)
+Debido a las limitaciones de los usuarios brindados por la academia, permite crear e el cruster, pero no se puede continuar trabajando con Redshift. 
+A su vez, el ultimo usuario no tenia acceso a Glue, por lo que no me permite trabajar en Redsfhit y Athena. Por ende, no puedo verificar la automatizacion (usando Step Funcions), pero se realizo un trabajo aproximado de la ejecucion. 
